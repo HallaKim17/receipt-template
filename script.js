@@ -16,6 +16,14 @@ const getLastDayOfMonth = (year, month) => {
     return new Date(year, month, 0).getDate();
 };
 
+// Function to format Korean date
+const formatKoreanDate = (date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${year}년 ${month}월 ${day}일`;
+};
+
 // Function to update receipt dates
 const updateReceiptDates = (year, month) => {
     const yearMonthDisplay = document.getElementById('yearMonthDisplay');
@@ -27,11 +35,10 @@ const updateReceiptDates = (year, month) => {
     
     // Set current date
     const currentDate = new Date();
-    dueDateDisplay.textContent = `${year}년 ${month}월 ${currentDate.getDate()}일`;
-    
-    // Set due date (last day of the month)
-    const lastDay = getLastDayOfMonth(year, month);
-    dueDateValue.textContent = `${year}년 ${month}월 ${lastDay}일까지`;
+    dueDateDisplay.textContent = formatKoreanDate(currentDate);
+
+    // Set due date with the selected month
+    dueDateValue.textContent = `${month}월 31일까지`;
 };
 
 // Function to update receipt content
