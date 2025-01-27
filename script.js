@@ -11,25 +11,37 @@ const formatCurrency = (amount) => {
     }).format(amount);
 };
 
-// Function to generate receipt number (removed as we're using fixed date)
-const generateReceiptNumber = () => {
-    return ''; // Empty string as we're showing fixed date in the header
+// Function to get the last day of the month
+const getLastDayOfMonth = (year, month) => {
+    return new Date(year, month, 0).getDate();
 };
 
-// Function to format date in Korean format (removed as we're using fixed date)
-const formatDate = (date) => {
-    return ''; // Empty string as we're showing fixed date in the header
+// Function to update receipt dates
+const updateReceiptDates = (year, month) => {
+    const yearMonthDisplay = document.getElementById('yearMonthDisplay');
+    const dueDateDisplay = document.getElementById('dueDateDisplay');
+    const dueDateValue = document.getElementById('dueDateValue');
+    
+    // Display the year and month for the receipt
+    yearMonthDisplay.textContent = `${year}년 ${month}월분`;
+    
+    // Set current date
+    const currentDate = new Date();
+    dueDateDisplay.textContent = `${year}년 ${month}월 ${currentDate.getDate()}일`;
+    
+    // Set due date (last day of the month)
+    const lastDay = getLastDayOfMonth(year, month);
+    dueDateValue.textContent = `${year}년 ${month}월 ${lastDay}일까지`;
 };
 
 // Function to update receipt content
 const updateReceiptContent = (data) => {
-    const {tenantName, electricityFee, waterFee, managementFee, total} = data;
+    const {tenantName, electricityFee, waterFee, managementFee, total, year, month} = data;
     
     try {
         // Update receipt content
         const elements = {
             'tenantNameValue': tenantName,
-            'unitNumber': '101',
             'electricityFeeValue': formatCurrency(electricityFee),
             'waterFeeValue': formatCurrency(waterFee),
             'managementFeeValue': formatCurrency(managementFee),
@@ -46,6 +58,9 @@ const updateReceiptContent = (data) => {
             }
         }
 
+        // Update dates
+        updateReceiptDates(year, month);
+
         return true;
     } catch (error) {
         console.error('Error updating receipt content:', error);
@@ -58,6 +73,8 @@ document.getElementById('feeForm').addEventListener('submit', async function(eve
     event.preventDefault();
     
     // Get and validate form values
+    const year = parseInt(document.getElementById('yearInput').value);
+    const month = parseInt(document.getElementById('monthInput').value);
     const tenantName = document.getElementById('tenantName').value;
     const electricityFee = parseFloat(document.getElementById('electricityFee').value) || 0;
     const waterFee = parseFloat(document.getElementById('waterFee').value) || 0;
@@ -71,7 +88,9 @@ document.getElementById('feeForm').addEventListener('submit', async function(eve
             electricityFee,
             waterFee,
             managementFee,
-            total
+            total,
+            year,
+            month
         });
 
         if (!updated) {
@@ -103,7 +122,7 @@ document.getElementById('feeForm').addEventListener('submit', async function(eve
                 // Download image
                 const image = canvas.toDataURL('image/png');
                 const link = document.createElement('a');
-                link.download = `관리비영수증_${tenantName}_${new Date().toISOString().split('T')[0]}.png`;
+                link.download = `관리비영수증_${year}년${month}월_${tenantName}.png`;
                 link.href = image;
                 link.click();
             } catch (error) {

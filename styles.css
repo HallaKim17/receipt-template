@@ -75,6 +75,25 @@ input::placeholder {
     color: #bdc3c7;
 }
 
+.year-month-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.year-month-inputs input {
+    width: 100px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.due-date {
+    color: #ff0000;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
 .submit-btn {
     width: 100%;
     padding: 14px;

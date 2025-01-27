@@ -16,6 +16,14 @@
         <main>
             <form id="feeForm" class="fee-form">
                 <div class="form-group">
+                    <label for="yearMonth">청구년월:</label>
+                    <div class="year-month-inputs">
+                        <input type="number" id="yearInput" required min="2024" max="2100" placeholder="년도">
+                        <input type="number" id="monthInput" required min="1" max="12" placeholder="월">
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="tenantName">세입자 이름:</label>
                     <input type="text" id="tenantName" required placeholder="이름을 입력하세요">
                 </div>
@@ -43,12 +51,12 @@
                     <div class="receipt-header">
                         <div class="company-info">
                             <h1 class="receipt-title">관리비 요금</h1>
-                            <p>서울특별시 송파구 백제고분로 ..</p>
+                            <p>서울특별시 송파구 백제고분로 18길 18</p>
                             <p>연락처: 최지인</p>
                             <p>010-8892-6314</p>
                         </div>
-                        <div class="receipt-number">2025년 1월분<span id="receiptNumber"></span></div>
-                        <div class="receipt-date">2025년 1월 27일<span id="receiptDate"></span></div>
+                        <div class="receipt-number"><span id="yearMonthDisplay"></span></div>
+                        <div class="receipt-date"><span id="dueDateDisplay"></span></div>
                     </div>
                     
                     <div class="receipt-body">
@@ -57,10 +65,6 @@
                             <div class="receipt-row">
                                 <span class="receipt-label">이름:</span>
                                 <span class="receipt-value" id="tenantNameValue"></span>
-                            </div>
-                            <div class="receipt-row">
-                                <span class="receipt-label">번호:</span>
-                                <span class="receipt-value" id="unitNumber"></span>
                             </div>
                         </div>
 
@@ -90,7 +94,7 @@
 
                     <div class="receipt-footer">
                         <p>위 금액을 아래 기한 내 납부 바랍니다. 감사합니다.</p>
-                        <p>기한: 2025년 1월 31일까지</p>
+                        <p class="due-date" id="dueDateText">기한: <span id="dueDateValue"></span></p>
                     </div>
                 </div>
                 <button id="downloadBtn" class="download-btn">영수증 이미지 다운로드</button>
