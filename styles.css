@@ -1,0 +1,217 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 2.5em;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    margin: 10px 0 0;
+    font-size: 1.2em;
+}
+
+/* Form Styles */
+.fee-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+input::placeholder {
+    color: #bdc3c7;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #27ae60;
+}
+
+/* Receipt Styles */
+.receipt-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.receipt {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid #000;
+    background: #fff;
+}
+
+.receipt-header {
+    text-align: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.receipt-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.receipt-number, .receipt-date {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.receipt-body {
+    margin: 20px 0;
+}
+
+.receipt-section {
+    margin: 15px 0;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+}
+
+.receipt-label {
+    font-weight: bold;
+    flex: 1;
+}
+
+.receipt-value {
+    text-align: right;
+    flex: 1;
+}
+
+.receipt-total {
+    margin-top: 20px;
+    border-top: 2px solid #000;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.receipt-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.company-info {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.download-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 14px 28px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .fee-form {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .receipt {
+        padding: 15px;
+    }
+}
+
+#receiptContainer {
+    margin-top: 20px;
+}

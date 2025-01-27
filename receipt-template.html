@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Receipt</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #fff;
+        }
+        .receipt {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 2px solid #000;
+            background: #fff;
+        }
+        .receipt-header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .receipt-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .receipt-number {
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0;
+        }
+        .receipt-date {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .receipt-body {
+            margin: 20px 0;
+        }
+        .receipt-section {
+            margin: 15px 0;
+        }
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
+        }
+        .receipt-label {
+            font-weight: bold;
+            flex: 1;
+        }
+        .receipt-value {
+            text-align: right;
+            flex: 1;
+        }
+        .receipt-total {
+            margin-top: 20px;
+            border-top: 2px solid #000;
+            padding-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .receipt-footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+        .company-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt" id="receipt">
+        <div class="receipt-header">
+            <div class="company-info">
+                <h1 class="receipt-title">관리비 요금</h1>
+                <p>서울특별시 송파구 백제고분로 ..</p>
+                <p>연락처: 최지인</p>
+                <p>010-8892-6314</p>
+            </div>
+            <div class="receipt-number">2025년 1월분<span id="receiptNumber"></span></div>
+            <div class="receipt-date">2025년 1월 27일<span id="receiptDate"></span></div>
+        </div>
+        
+        <div class="receipt-body">
+            <div class="receipt-section">
+                <h3>세입자</h3>
+                <div class="receipt-row">
+                    <span class="receipt-label">이름: </span>
+                    <span class="receipt-value" id="tenantNameValue"></span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">번호:</span>
+                    <span class="receipt-value" id="unitNumber"></span>
+                </div>
+            </div>
+
+            <div class="receipt-section">
+                <h3>요금:</h3>
+                <div class="receipt-row">
+                    <span class="receipt-label">전기세:</span>
+                    <span class="receipt-value" id="electricityFeeValue"></span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">수도세:</span>
+                    <span class="receipt-value" id="waterFeeValue"></span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">관리비:</span>
+                    <span class="receipt-value" id="managementFeeValue"></span>
+                </div>
+            </div>
+
+            <div class="receipt-total">
+                <div class="receipt-row">
+                    <span class="receipt-label">합계:</span>
+                    <span class="receipt-value" id="totalAmount"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="receipt-footer">
+            <p>위 금액을 아래 기한 내 납부 바랍니다. 감사합니다.</p>
+            <p>기ㄴ: 2025년 1월 31일까지</p>
+        </div>
+    </div>
+    <script>
+        // Signal that the receipt template is ready
+        window.addEventListener('load', function() {
+            window.receiptTemplateLoaded = true;
+        });
+    </script>
+</body>
+</html>
